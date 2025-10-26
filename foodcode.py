@@ -78,7 +78,7 @@ def data_check(inp):
 #finding nearby restaurants
 
 def find_nearby(lat, lng):
-    API_KEY = "AIzaSyDMHHlNPPwrJFALbeJC4MqAMofLYIfAtgM"
+    API_KEY = "-"
     gmaps = googlemaps.Client(key=API_KEY)
     restaurants =['taco bell', 'mcdonalds', 'little caesars', 'krispy kreme', 'jack in the box', 'wendys', 'burger king', 'panda express', 'zaxbys', 'sonic', 'subway', 'caseys', 'chick fil a', 'arbys', 'starbucks', 'dominos', 'kfc', 'popeyes', 'five guys', 'wingstop', 'raising canes', 'in n out burger']
 
@@ -130,3 +130,4 @@ def main(inp):
 
     
     
+
