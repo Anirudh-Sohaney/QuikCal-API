@@ -1,0 +1,39 @@
+foodcode.py - 
+  Consists main functions -
+    find_nearby :  Finding nearby restaurants (requires google maps api)
+    macros_match : Generating a rating for how well a food matches the user's goals
+    data_check : Finding what foods from the restaurants best fit the users goal
+    main : Combing the above for the final output
+
+app.py : 
+  Hosts the API
+
+Api guide : 
+  API route : "/inp"
+  API input json format : {"calories": int/null ,"protein": int/null ,"fats": int/null ,"carbohydrates": int/null , "restrictions" : list, "lat" : float, "long" : float}
+    Any of the first four values with null will not affect the overall output
+    "restrictions" may contain "meat", "nut" and/or "dairy" relating to any dietary restrictions
+    "lat" and "long" imply "latitude" and "longitude" to find nearby restaurants
+  API output : 
+      {
+        restaurant name : 
+          { 
+            'distance' : float,
+            'address' : string,
+            'foods' :
+                  {  
+                    food name : 
+                      {
+                        'rating' : float,
+                        'carbs' : int,
+                        'fats' : int,
+                        'proteins' : int,
+                        'calories' : int
+                      }
+                    }
+            }
+        }
+
+  Rating for each food is between 0 -1 and shows how close the food is to the API input data
+  The foods are sorted from highest rating to lowest rating
+  Restaurants are sorted from closest to furthest (distance)
